@@ -50,9 +50,9 @@ const int XVM_UNBOUNDED_CONNECTIONS = -1;
 //------------------------------------------------------------------------------
 
 class xvm_analysis_port #(type T=int)
-  extends xvm_port #(xvm_tlm_analysis_if #(T,T)) 
-  implements xvm_tlm_analysis_if #(T,T),
-             xvm_port_check_if #(xvm_tlm_analysis_if #(T,T));
+  extends xvm_port #(xvm_tlm_analysis_if #(T)) 
+  implements xvm_tlm_analysis_if #(T),
+             xvm_port_check_if #(xvm_tlm_analysis_if #(T));
 
   function new (string name, uvm_component parent);
     super.new (name, parent, 0, XVM_UNBOUNDED_CONNECTIONS);
@@ -99,9 +99,9 @@ endclass
 //------------------------------------------------------------------------------
 
 class xvm_analysis_imp #(type T=int, type IMP=int)
-  extends xvm_imp #(xvm_tlm_analysis_if #(T,T))
-  implements xvm_tlm_analysis_if #(T,T),
-             xvm_export_check_if #(xvm_tlm_analysis_if #(T,T));
+  extends xvm_imp #(xvm_tlm_analysis_if #(T))
+  implements xvm_tlm_analysis_if #(T),
+             xvm_export_check_if #(xvm_tlm_analysis_if #(T));
 
   `XVM_IMP_COMMON("xvm_analysis_imp",IMP)
   virtual function void write (input T t);
@@ -116,9 +116,9 @@ endclass
 
 
 class xvm_analysis_export #(type T=int)
-  extends xvm_export #(xvm_tlm_analysis_if #(T,T)) 
-  implements xvm_tlm_analysis_if #(T,T),
-             xvm_export_check_if #(xvm_tlm_analysis_if #(T,T));
+  extends xvm_export #(xvm_tlm_analysis_if #(T)) 
+  implements xvm_tlm_analysis_if #(T),
+             xvm_export_check_if #(xvm_tlm_analysis_if #(T));
 
   function new (string name, uvm_component parent = null);
     super.new (name, parent, 1, XVM_UNBOUNDED_CONNECTIONS);

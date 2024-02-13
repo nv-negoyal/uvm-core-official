@@ -47,100 +47,100 @@
 //----------------------------------------------------------------------
 //PUT INTERFACES
 //----------------------------------------------------------------------
-interface class xvm_tlm_blocking_put_if #(type T1=int, type T2=int);
+interface class xvm_tlm_blocking_put_if #(type T1=int);
   pure virtual task put(input T1 t );
 endclass
-interface class xvm_tlm_nonblocking_put_if #(type T1=int, type T2=int);
+interface class xvm_tlm_nonblocking_put_if #(type T1=int);
   pure virtual function bit try_put( input T1 t );
   pure virtual function bit can_put( );
 endclass
-interface class xvm_tlm_put_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_put_if #(T1,T2), 
-          xvm_tlm_nonblocking_put_if #(T1,T2);
+interface class xvm_tlm_put_if #(type T1=int)
+  extends xvm_tlm_blocking_put_if #(T1), 
+          xvm_tlm_nonblocking_put_if #(T1);
 endclass
 
 //----------------------------------------------------------------------
 //GET INTERFACES
 //----------------------------------------------------------------------
-interface class xvm_tlm_blocking_get_if #(type T1=int, type T2=int);
-  pure virtual task get( output T2 t );
+interface class xvm_tlm_blocking_get_if #(type T1=int);
+  pure virtual task get( output T1 t );
 endclass
-interface class xvm_tlm_nonblocking_get_if #(type T1=int, type T2=int);
-  pure virtual function bit try_get( output T2 t );
+interface class xvm_tlm_nonblocking_get_if #(type T1=int);
+  pure virtual function bit try_get( output T1 t );
   pure virtual function bit can_get( );
 endclass
-interface class xvm_tlm_get_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_get_if #(T1,T2), 
-          xvm_tlm_nonblocking_get_if #(T1,T2);
+interface class xvm_tlm_get_if #(type T1=int)
+  extends xvm_tlm_blocking_get_if #(T1), 
+          xvm_tlm_nonblocking_get_if #(T1);
 endclass
 
 //----------------------------------------------------------------------
 //PEEK INTERFACES
 //----------------------------------------------------------------------
-interface class xvm_tlm_blocking_peek_if #(type T1=int, type T2=int);
-  pure virtual task peek( output T2 t );
+interface class xvm_tlm_blocking_peek_if #(type T1=int);
+  pure virtual task peek( output T1 t );
 endclass
-interface class xvm_tlm_nonblocking_peek_if #(type T1=int, type T2=int);
-  pure virtual function bit try_peek( output T2 t );
+interface class xvm_tlm_nonblocking_peek_if #(type T1=int);
+  pure virtual function bit try_peek( output T1 t );
   pure virtual function bit can_peek( );
 endclass
-interface class xvm_tlm_peek_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_peek_if #(T1,T2),
-          xvm_tlm_nonblocking_peek_if #(T1,T2);
+interface class xvm_tlm_peek_if #(type T1=int)
+  extends xvm_tlm_blocking_peek_if #(T1),
+          xvm_tlm_nonblocking_peek_if #(T1);
 endclass
 
 //----------------------------------------------------------------------
 //GET_PEEK INTERFACES
 //----------------------------------------------------------------------
-interface class xvm_tlm_blocking_get_peek_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_get_if #(T1,T2),
-          xvm_tlm_blocking_peek_if #(T1,T2);
+interface class xvm_tlm_blocking_get_peek_if #(type T1=int)
+  extends xvm_tlm_blocking_get_if #(T1),
+          xvm_tlm_blocking_peek_if #(T1);
 endclass
-interface class xvm_tlm_nonblocking_get_peek_if #(type T1=int, type T2=int)
-  extends xvm_tlm_nonblocking_get_if #(T1,T2),
-          xvm_tlm_nonblocking_peek_if #(T1,T2);
+interface class xvm_tlm_nonblocking_get_peek_if #(type T1=int)
+  extends xvm_tlm_nonblocking_get_if #(T1),
+          xvm_tlm_nonblocking_peek_if #(T1);
 endclass
-interface class xvm_tlm_get_peek_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_get_peek_if #(T1,T2),
-           xvm_tlm_nonblocking_get_peek_if #(T1,T2),
-           xvm_tlm_get_if #(T1,T2),
-           xvm_tlm_peek_if #(T1,T2);
+interface class xvm_tlm_get_peek_if #(type T1=int)
+  extends xvm_tlm_blocking_get_peek_if #(T1),
+           xvm_tlm_nonblocking_get_peek_if #(T1),
+           xvm_tlm_get_if #(T1),
+           xvm_tlm_peek_if #(T1);
 endclass
 
 //----------------------------------------------------------------------
 //MASTER INTERFACES
 //----------------------------------------------------------------------
 interface class xvm_tlm_blocking_master_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_put_if #(T1,T2),
-          xvm_tlm_blocking_get_peek_if #(T1,T2);
+  extends xvm_tlm_blocking_put_if #(T1),
+          xvm_tlm_blocking_get_peek_if #(T2);
 endclass
 interface class xvm_tlm_nonblocking_master_if #(type T1=int, type T2=int)
-  extends xvm_tlm_nonblocking_put_if #(T1,T2),
-          xvm_tlm_nonblocking_get_peek_if #(T1,T2);
+  extends xvm_tlm_nonblocking_put_if #(T1),
+          xvm_tlm_nonblocking_get_peek_if #(T2);
 endclass
 interface class xvm_tlm_master_if #(type T1=int, type T2=int)
   extends xvm_tlm_blocking_master_if #(T1,T2),
           xvm_tlm_nonblocking_master_if #(T1,T2),
-          xvm_tlm_put_if #(T1,T2),
-          xvm_tlm_get_peek_if #(T1,T2);
+          xvm_tlm_put_if #(T1),
+          xvm_tlm_get_peek_if #(T2);
 endclass
 
 //----------------------------------------------------------------------
 //SLAVE INTERFACES
 //----------------------------------------------------------------------
 interface class xvm_tlm_blocking_slave_if #(type T1=int, type T2=int)
-  extends xvm_tlm_blocking_put_if #(T1,T2),
-          xvm_tlm_blocking_get_peek_if #(T1,T2);
+  extends xvm_tlm_blocking_put_if #(T2),
+          xvm_tlm_blocking_get_peek_if #(T1);
 endclass
 interface class xvm_tlm_nonblocking_slave_if #(type T1=int, type T2=int)
-  extends xvm_tlm_nonblocking_put_if #(T1,T2),
-          xvm_tlm_nonblocking_get_peek_if #(T1,T2);
+  extends xvm_tlm_nonblocking_put_if #(T2),
+          xvm_tlm_nonblocking_get_peek_if #(T1);
 endclass
 interface class xvm_tlm_slave_if #(type T1=int, type T2=int)
   extends xvm_tlm_blocking_slave_if #(T1,T2),
           xvm_tlm_nonblocking_slave_if #(T1,T2),
-          xvm_tlm_put_if #(T1,T2),
-          xvm_tlm_get_peek_if #(T1,T2);
+          xvm_tlm_put_if #(T2),
+          xvm_tlm_get_peek_if #(T1);
 endclass
 
 //----------------------------------------------------------------------
@@ -158,7 +158,7 @@ interface class xvm_tlm_transport_if  #(type T1=int, type T2=int)
 endclass
 
 //ANALYSIS INTERFACES
-interface class xvm_tlm_analysis_if #(type T1=int, type T2=int);
+interface class xvm_tlm_analysis_if #(type T1=int);
   pure virtual function void write( input T1 t );
 endclass
 

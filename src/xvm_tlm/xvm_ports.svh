@@ -77,17 +77,17 @@
 //PUT PORTS
 //----------------------------------------------------------------------
 class xvm_blocking_put_port #(type T=int) 
- extends xvm_blocking_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_put_if #(T,T))); 
+ extends xvm_blocking_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_put_if #(T))); 
   `XVM_PORT_COMMON("xvm_blocking_put_port")
   `XVM_BLOCKING_PUT_IMP (this.m_if, T, t)
 endclass 
 class xvm_nonblocking_put_port #(type T=int) 
- extends xvm_nonblocking_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_put_if #(T,T))); 
+ extends xvm_nonblocking_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_put_if #(T))); 
   `XVM_PORT_COMMON("xvm_nonblocking_put_port")
   `XVM_NONBLOCKING_PUT_IMP (this.m_if, T, t)
 endclass 
 class xvm_put_port #(type T=int) 
- extends xvm_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_put_if #(T,T))); 
+ extends xvm_put_port_pure_mixin#(T, xvm_port #(xvm_tlm_put_if #(T))); 
   `XVM_PORT_COMMON("xvm_put_port")
   `XVM_PUT_IMP (this.m_if, T, t)
 endclass 
@@ -97,17 +97,17 @@ endclass
 //GET PORTS
 //----------------------------------------------------------------------
 class xvm_blocking_get_port #(type T=int) 
- extends xvm_blocking_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_get_if #(T,T))); 
+ extends xvm_blocking_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_get_if #(T))); 
   `XVM_PORT_COMMON("xvm_blocking_get_port")
   `XVM_BLOCKING_GET_IMP (this.m_if, T, t)
 endclass 
 class xvm_nonblocking_get_port #(type T=int) 
- extends xvm_nonblocking_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_get_if #(T,T))); 
+ extends xvm_nonblocking_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_get_if #(T))); 
   `XVM_PORT_COMMON("xvm_nonblocking_get_port")
   `XVM_NONBLOCKING_GET_IMP (this.m_if, T, t)
 endclass 
 class xvm_get_port #(type T=int) 
- extends xvm_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_get_if #(T,T))); 
+ extends xvm_get_port_pure_mixin#(T, xvm_port #(xvm_tlm_get_if #(T))); 
   `XVM_PORT_COMMON("xvm_get_port")
   `XVM_GET_IMP (this.m_if, T, t)
 endclass 
@@ -117,17 +117,17 @@ endclass
 //PEEK PORTS
 //----------------------------------------------------------------------
 class xvm_blocking_peek_port #(type T=int) 
- extends xvm_blocking_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_peek_if #(T,T))); 
+ extends xvm_blocking_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_peek_if #(T))); 
   `XVM_PORT_COMMON("xvm_blocking_peek_port")
   `XVM_BLOCKING_PEEK_IMP (this.m_if, T, t)
 endclass 
 class xvm_nonblocking_peek_port #(type T=int) 
- extends xvm_nonblocking_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_peek_if #(T,T))); 
+ extends xvm_nonblocking_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_peek_if #(T))); 
   `XVM_PORT_COMMON("xvm_nonblocking_peek_port")
   `XVM_NONBLOCKING_PEEK_IMP (this.m_if, T, t)
 endclass 
 class xvm_peek_port #(type T=int) 
- extends xvm_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_peek_if #(T,T))); 
+ extends xvm_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_peek_if #(T))); 
   `XVM_PORT_COMMON("xvm_peek_port")
   `XVM_PEEK_IMP (this.m_if, T, t)
 endclass 
@@ -137,17 +137,17 @@ endclass
 //GET-PEEK PORTS
 //----------------------------------------------------------------------
 class xvm_blocking_get_peek_port #(type T=int) 
- extends xvm_blocking_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_get_peek_if #(T,T))); 
+ extends xvm_blocking_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_blocking_get_peek_if #(T))); 
    `XVM_PORT_COMMON("xvm_blocking_get_peek_port")
   `XVM_BLOCKING_GET_PEEK_IMP (this.m_if, T, t)
 endclass 
 class xvm_nonblocking_get_peek_port #(type T=int) 
- extends xvm_nonblocking_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_get_peek_if #(T,T))); 
+ extends xvm_nonblocking_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_nonblocking_get_peek_if #(T))); 
    `XVM_PORT_COMMON("xvm_nonblocking_get_peek_port")
   `XVM_NONBLOCKING_GET_PEEK_IMP (this.m_if, T, t)
 endclass
 class xvm_get_peek_port #(type T=int) 
- extends xvm_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_get_peek_if #(T,T))); 
+ extends xvm_get_peek_port_pure_mixin#(T, xvm_port #(xvm_tlm_get_peek_if #(T))); 
    `XVM_PORT_COMMON("xvm_get_peek_port")
   `XVM_GET_PEEK_IMP (this.m_if, T, t)
 endclass 

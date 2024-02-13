@@ -76,17 +76,17 @@
 //PUT IMPS
 //----------------------------------------------------------------------
 class xvm_blocking_put_imp #(type T=int, type IMP=int) 
- extends xvm_blocking_put_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_put_if #(T,T))); 
+ extends xvm_blocking_put_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_put_if #(T))); 
   `XVM_IMP_COMMON("xvm_blocking_put_imp",IMP)
   `XVM_BLOCKING_PUT_IMP (m_imp, T, t)
 endclass 
 class xvm_nonblocking_put_imp #(type T=int, type IMP=int) 
- extends xvm_nonblocking_put_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_put_if #(T,T))); 
+ extends xvm_nonblocking_put_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_put_if #(T))); 
   `XVM_IMP_COMMON("xvm_nonblocking_put_imp",IMP)
   `XVM_NONBLOCKING_PUT_IMP (m_imp, T, t)
 endclass 
 class xvm_put_imp #(type T=int, type IMP=int) 
- extends xvm_put_export_pure_mixin#(T, xvm_imp #(xvm_tlm_put_if #(T,T))); 
+ extends xvm_put_export_pure_mixin#(T, xvm_imp #(xvm_tlm_put_if #(T))); 
   `XVM_IMP_COMMON("xvm_put_imp",IMP)
   `XVM_PUT_IMP (m_imp, T, t)
 endclass 
@@ -95,17 +95,17 @@ endclass
 //GET IMPS
 //----------------------------------------------------------------------
 class xvm_blocking_get_imp #(type T=int, type IMP=int) 
- extends xvm_blocking_get_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_get_if #(T,T))); 
+ extends xvm_blocking_get_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_get_if #(T))); 
   `XVM_IMP_COMMON("xvm_blocking_get_imp",IMP)
   `XVM_BLOCKING_GET_IMP (m_imp, T, t)
 endclass 
 class xvm_nonblocking_get_imp #(type T=int, type IMP=int) 
- extends xvm_nonblocking_get_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_get_if #(T,T))); 
+ extends xvm_nonblocking_get_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_get_if #(T))); 
   `XVM_IMP_COMMON("xvm_nonblocking_get_imp",IMP)
   `XVM_NONBLOCKING_GET_IMP (m_imp, T, t)
 endclass 
 class xvm_get_imp #(type T=int, type IMP=int) 
- extends xvm_get_export_pure_mixin#(T, xvm_imp #(xvm_tlm_get_if #(T,T))); 
+ extends xvm_get_export_pure_mixin#(T, xvm_imp #(xvm_tlm_get_if #(T))); 
   `XVM_IMP_COMMON("xvm_get_imp",IMP)
   `XVM_GET_IMP (m_imp, T, t)
 endclass 
@@ -114,17 +114,17 @@ endclass
 //PEEK IMPS
 //----------------------------------------------------------------------
 class xvm_blocking_peek_imp #(type T=int, type IMP=int) 
- extends xvm_blocking_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_peek_if #(T,T))); 
+ extends xvm_blocking_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_blocking_peek_imp",IMP)
   `XVM_BLOCKING_PEEK_IMP (m_imp, T, t)
 endclass 
 class xvm_nonblocking_peek_imp #(type T=int, type IMP=int) 
- extends xvm_nonblocking_peek_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_peek_if #(T,T))); 
+ extends xvm_nonblocking_peek_export_pure_mixin#(T, xvm_imp #(xvm_tlm_nonblocking_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_nonblocking_peek_imp",IMP)
   `XVM_NONBLOCKING_PEEK_IMP (m_imp, T, t)
 endclass 
 class xvm_peek_imp #(type T=int, type IMP=int) 
- extends xvm_peek_export_pure_mixin#(T, xvm_imp #(xvm_tlm_peek_if #(T,T))); 
+ extends xvm_peek_export_pure_mixin#(T, xvm_imp #(xvm_tlm_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_peek_imp",IMP)
   `XVM_PEEK_IMP (m_imp, T, t)
 endclass 
@@ -133,17 +133,17 @@ endclass
 //GET-PEEK IMPS
 //----------------------------------------------------------------------
 class xvm_blocking_get_peek_imp #(type T=int, type IMP=int) 
- extends xvm_blocking_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_get_peek_if #(T,T))); 
+ extends xvm_blocking_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_blocking_get_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_blocking_get_peek_imp", IMP)
   `XVM_BLOCKING_GET_PEEK_IMP (m_imp, T, t)
 endclass 
 class xvm_nonblocking_get_peek_imp #(type T=int, type IMP=int) 
- extends xvm_nonblocking_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_nonblocking_get_peek_if #(T,T))); 
+ extends xvm_nonblocking_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_nonblocking_get_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_nonblocking_get_peek_imp", IMP)
   `XVM_NONBLOCKING_GET_PEEK_IMP (m_imp, T, t)
 endclass
 class xvm_get_peek_imp #(type T=int, type IMP=int) 
- extends xvm_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_get_peek_if #(T,T))); 
+ extends xvm_get_peek_export_pure_mixin #(T, xvm_imp #(xvm_tlm_get_peek_if #(T))); 
   `XVM_IMP_COMMON("xvm_get_peek_imp", IMP)
   `XVM_GET_PEEK_IMP (m_imp, T, t)
 endclass 

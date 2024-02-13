@@ -35,15 +35,15 @@
 //----------------------------------------------------------------------
 virtual class xvm_blocking_put_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_blocking_put_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_put_if #(T,T));
+   implements xvm_tlm_blocking_put_if #(T),
+              xvm_export_check_if #(xvm_tlm_blocking_put_if #(T));
    `XVM_NEW_COMMON
    pure virtual task put(T t);
 endclass // xvm_blocking_put_export_pure_mixin
 virtual class xvm_nonblocking_put_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_nonblocking_put_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T,T));
+   implements xvm_tlm_nonblocking_put_if #(T),
+              xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T));
    `XVM_NEW_COMMON
    pure virtual function bit try_put (T t); 
    pure virtual function bit can_put(); 
@@ -51,10 +51,8 @@ endclass // xvm_nonblocking_put_export_pure_mixin
 virtual class xvm_put_export_pure_mixin #(type T=int, type BASE=int)
    extends xvm_blocking_put_export_pure_mixin #(T,
 	         xvm_nonblocking_put_export_pure_mixin #(T, BASE))
-   implements xvm_tlm_put_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_put_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_put_if #(T,T));
+   implements xvm_tlm_put_if #(T),
+              xvm_export_check_if #(xvm_tlm_put_if #(T));
    `XVM_NEW_COMMON
    pure virtual task put(T t);
    pure virtual function bit try_put (T t); 
@@ -66,15 +64,15 @@ endclass // xvm_put_export_pure_mixin
 //----------------------------------------------------------------------
 virtual class xvm_blocking_get_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_blocking_get_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T));
+   implements xvm_tlm_blocking_get_if #(T),
+              xvm_export_check_if #(xvm_tlm_blocking_get_if #(T));
    `XVM_NEW_COMMON
    pure virtual task get(output T t);
 endclass // xvm_blocking_get_export_pure_mixin
 virtual class xvm_nonblocking_get_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_nonblocking_get_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T));
+   implements xvm_tlm_nonblocking_get_if #(T),
+              xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T));
    `XVM_NEW_COMMON
    pure virtual function bit try_get (output T t); 
    pure virtual function bit can_get(); 
@@ -82,10 +80,8 @@ endclass // xvm_nonblocking_get_export_pure_mixin
 virtual class xvm_get_export_pure_mixin #(type T=int, type BASE=int)
    extends xvm_blocking_get_export_pure_mixin #(T,
 	         xvm_nonblocking_get_export_pure_mixin #(T, BASE))
-   implements xvm_tlm_get_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_get_if #(T,T));
+   implements xvm_tlm_get_if #(T),
+              xvm_export_check_if #(xvm_tlm_get_if #(T));
    `XVM_NEW_COMMON
    pure virtual task get(output T t);
    pure virtual function bit try_get (output T t); 
@@ -97,15 +93,15 @@ endclass // xvm_get_export_pure_mixin
 //----------------------------------------------------------------------
 virtual class xvm_blocking_peek_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_blocking_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T));
+   implements xvm_tlm_blocking_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual task peek(output T t);
 endclass // xvm_blocking_peek_export_pure_mixin
 virtual class xvm_nonblocking_peek_export_pure_mixin #(type T=int, type BASE=int)
    extends BASE
-   implements xvm_tlm_nonblocking_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T));
+   implements xvm_tlm_nonblocking_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual function bit try_peek (output T t); 
    pure virtual function bit can_peek(); 
@@ -113,10 +109,8 @@ endclass // xvm_nonblocking_peek_export_pure_mixin
 virtual class xvm_peek_export_pure_mixin #(type T=int, type BASE=int)
    extends xvm_blocking_peek_export_pure_mixin #(T,
 	         xvm_nonblocking_peek_export_pure_mixin #(T, BASE))
-   implements xvm_tlm_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_peek_if #(T,T));
+   implements xvm_tlm_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual task peek(output T t);
    pure virtual function bit try_peek (output T t); 
@@ -129,10 +123,10 @@ endclass // xvm_peek_export_pure_mixin
 virtual class xvm_blocking_get_peek_export_pure_mixin #(type T=int, type BASE=int)
    extends xvm_blocking_peek_export_pure_mixin #(T,
 	         xvm_blocking_get_export_pure_mixin #(T, BASE))
-   implements xvm_tlm_blocking_get_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T,T));
+   implements xvm_tlm_blocking_get_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T)),
+              xvm_export_check_if #(xvm_tlm_blocking_get_if #(T)),
+              xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual task get(output T t);
    pure virtual task peek(output T t);
@@ -140,10 +134,10 @@ endclass // xvm_blocking_get_peek_export_pure_mixin
 virtual class xvm_nonblocking_get_peek_export_pure_mixin #(type T=int, type BASE=int)
    extends xvm_nonblocking_peek_export_pure_mixin #(T,
 	         xvm_nonblocking_get_export_pure_mixin #(T, BASE))
-   implements xvm_tlm_nonblocking_get_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T,T));
+   implements xvm_tlm_nonblocking_get_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T)),
+              xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T)),
+              xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual function bit try_get (output T t); 
    pure virtual function bit can_get(); 
@@ -155,10 +149,10 @@ virtual class xvm_get_peek_export_pure_mixin #(type T=int, type BASE=int)
 	         xvm_get_export_pure_mixin #(T, 
  	         xvm_blocking_get_peek_export_pure_mixin #(T, 
  	         xvm_nonblocking_get_peek_export_pure_mixin #(T, BASE))))
-   implements xvm_tlm_get_peek_if #(T,T),
-              xvm_export_check_if #(xvm_tlm_get_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_peek_if #(T,T)),
-              xvm_export_check_if #(xvm_tlm_get_peek_if #(T,T));
+   implements xvm_tlm_get_peek_if #(T),
+              xvm_export_check_if #(xvm_tlm_get_if #(T)),
+              xvm_export_check_if #(xvm_tlm_peek_if #(T)),
+              xvm_export_check_if #(xvm_tlm_get_peek_if #(T));
    `XVM_NEW_COMMON
    pure virtual task get(output T t);
    pure virtual task peek(output T t);
@@ -176,8 +170,8 @@ virtual class xvm_blocking_master_export_pure_mixin #(type REQ=int, type RSP=REQ
 	         xvm_blocking_get_export_pure_mixin #(RSP, 
 	         xvm_blocking_put_export_pure_mixin #(REQ, BASE)))
    implements xvm_tlm_blocking_master_if #(REQ,RSP),
-            xvm_export_check_if #(xvm_tlm_blocking_put_if #(REQ,RSP)),
-            xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(REQ,RSP)),
+            xvm_export_check_if #(xvm_tlm_blocking_put_if #(REQ)),
+            xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(RSP)),
             xvm_export_check_if #(xvm_tlm_blocking_master_if #(REQ,RSP));
    `XVM_NEW_COMMON
    pure virtual task put(REQ t);
@@ -189,8 +183,8 @@ virtual class xvm_nonblocking_master_export_pure_mixin #(type REQ=int, type RSP=
 	         xvm_nonblocking_get_export_pure_mixin #(RSP, 
 	         xvm_nonblocking_put_export_pure_mixin #(REQ, BASE)))
    implements xvm_tlm_nonblocking_master_if #(REQ,RSP),
-            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(REQ,RSP)),
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(REQ,RSP)),
+            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(REQ)),
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(RSP)),
             xvm_export_check_if #(xvm_tlm_nonblocking_master_if #(REQ,RSP));
    `XVM_NEW_COMMON
    pure virtual function bit try_put(REQ t);
@@ -207,10 +201,10 @@ virtual class xvm_master_export_pure_mixin #(type REQ=int, type RSP=REQ, type BA
 	         xvm_blocking_master_export_pure_mixin #(REQ, RSP,
 	         xvm_nonblocking_master_export_pure_mixin #(REQ, RSP, BASE))))) 
    implements xvm_tlm_master_if #(REQ,RSP),
-            xvm_export_check_if #(xvm_tlm_put_if #(REQ,RSP)),
-            xvm_export_check_if #(xvm_tlm_get_if #(REQ,RSP)),
-            xvm_export_check_if #(xvm_tlm_peek_if #(REQ,RSP)),
-            xvm_export_check_if #(xvm_tlm_get_peek_if #(REQ,RSP)),
+            xvm_export_check_if #(xvm_tlm_put_if #(REQ)),
+            xvm_export_check_if #(xvm_tlm_get_if #(RSP)),
+            xvm_export_check_if #(xvm_tlm_peek_if #(RSP)),
+            xvm_export_check_if #(xvm_tlm_get_peek_if #(RSP)),
             xvm_export_check_if #(xvm_tlm_master_if #(REQ,RSP));
    `XVM_NEW_COMMON
    pure virtual task put(input REQ t);
@@ -232,8 +226,8 @@ virtual class xvm_blocking_slave_export_pure_mixin #(type REQ=int, type RSP=REQ,
 	         xvm_blocking_get_export_pure_mixin #(REQ, 
 	         xvm_blocking_put_export_pure_mixin #(RSP, BASE)))
    implements xvm_tlm_blocking_slave_if #(RSP,REQ),
-            xvm_export_check_if #(xvm_tlm_blocking_put_if #(RSP,REQ)),
-            xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(RSP,REQ)),
+            xvm_export_check_if #(xvm_tlm_blocking_put_if #(RSP)),
+            xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(REQ)),
             xvm_export_check_if #(xvm_tlm_blocking_slave_if #(RSP,REQ));
    `XVM_NEW_COMMON
    pure virtual task put(RSP t);
@@ -245,8 +239,8 @@ virtual class xvm_nonblocking_slave_export_pure_mixin #(type REQ=int, type RSP=R
 	         xvm_nonblocking_get_export_pure_mixin #(REQ, 
 	         xvm_nonblocking_put_export_pure_mixin #(RSP, BASE)))
    implements xvm_tlm_nonblocking_slave_if #(RSP,REQ),
-            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(RSP,REQ)),
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(RSP,REQ)),
+            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(RSP)),
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(REQ)),
             xvm_export_check_if #(xvm_tlm_nonblocking_slave_if #(RSP,REQ));
    `XVM_NEW_COMMON
    pure virtual function bit try_put(RSP t);
@@ -263,10 +257,10 @@ virtual class xvm_slave_export_pure_mixin #(type REQ=int, type RSP=REQ, type BAS
 	         xvm_blocking_slave_export_pure_mixin #(REQ, RSP,
 	         xvm_nonblocking_slave_export_pure_mixin #(REQ, RSP, BASE))))) 
    implements xvm_tlm_slave_if #(RSP,REQ),
-            xvm_export_check_if #(xvm_tlm_put_if #(RSP,REQ)),
-            xvm_export_check_if #(xvm_tlm_get_if #(RSP,REQ)),
-            xvm_export_check_if #(xvm_tlm_peek_if #(RSP,REQ)),
-            xvm_export_check_if #(xvm_tlm_get_peek_if #(RSP,REQ)),
+            xvm_export_check_if #(xvm_tlm_put_if #(RSP)),
+            xvm_export_check_if #(xvm_tlm_get_if #(REQ)),
+            xvm_export_check_if #(xvm_tlm_peek_if #(REQ)),
+            xvm_export_check_if #(xvm_tlm_get_peek_if #(REQ)),
             xvm_export_check_if #(xvm_tlm_slave_if #(RSP,REQ));
    `XVM_NEW_COMMON
    pure virtual task put(input RSP t);

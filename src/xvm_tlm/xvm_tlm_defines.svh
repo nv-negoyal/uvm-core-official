@@ -81,28 +81,28 @@
 
 `define xvm_blocking_put_imp_decl(SFX) \
 class xvm_blocking_put_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_blocking_put_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_put_if #(T,T)), \
+ extends xvm_imp #(xvm_tlm_blocking_put_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_put_if #(T)), \
   `XVM_IMP_COMMON(`"xvm_blocking_put_imp``SFX`",IMP) \
   `XVM_BLOCKING_PUT_IMP_SFX(SFX, m_imp, T, t) \
 endclass
 
 `define xvm_nonblocking_put_imp_decl(SFX) \
 class xvm_nonblocking_put_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_nonblocking_put_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T,T)), \
-            xvm_tlm_nonblocking_put_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_nonblocking_put_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T)), \
+            xvm_tlm_nonblocking_put_if #(T); \
   `XVM_IMP_COMMON(`"xvm_nonblocking_put_imp``SFX`",IMP) \
   `XVM_NONBLOCKING_PUT_IMP_SFX( SFX, m_imp, T, t) \
 endclass
 
 `define xvm_put_imp_decl(SFX) \
 class xvm_put_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_put_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_put_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_put_if #(T,T)), \
-            xvm_tlm_put_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_put_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_put_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_put_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_put_if #(T)), \
+            xvm_tlm_put_if #(T); \
   `XVM_IMP_COMMON(`"xvm_put_imp``SFX`",IMP) \
   `XVM_BLOCKING_PUT_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_NONBLOCKING_PUT_IMP_SFX(SFX, m_imp, T, t) \
@@ -110,29 +110,29 @@ endclass
 
 `define xvm_blocking_get_imp_decl(SFX) \
 class xvm_blocking_get_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_blocking_get_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)), \
-            xvm_tlm_blocking_get_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_blocking_get_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_get_if #(T)), \
+            xvm_tlm_blocking_get_if #(T); \
   `XVM_IMP_COMMON(`"xvm_blocking_get_imp``SFX`",IMP) \
   `XVM_BLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
 endclass
 
 `define xvm_nonblocking_get_imp_decl(SFX) \
 class xvm_nonblocking_get_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_nonblocking_get_if #(T,T)) \
- implements xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)), \
-            xvm_tlm_nonblocking_get_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_nonblocking_get_if #(T)) \
+ implements xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T)), \
+            xvm_tlm_nonblocking_get_if #(T); \
   `XVM_IMP_COMMON(`"xvm_nonblocking_get_imp``SFX`",IMP) \
   `XVM_NONBLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
 endclass
 
 `define xvm_get_imp_decl(SFX) \
 class xvm_get_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_get_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_get_if #(T,T)), \
-            xvm_tlm_get_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_get_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_get_if #(T)), \
+            xvm_tlm_get_if #(T); \
   `XVM_IMP_COMMON(`"xvm_get_imp``SFX`",IMP) \
   `XVM_BLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_NONBLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
@@ -140,29 +140,29 @@ endclass
 
 `define xvm_blocking_peek_imp_decl(SFX) \
 class xvm_blocking_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_blocking_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)), \
-            xvm_tlm_blocking_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_blocking_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T)), \
+            xvm_tlm_blocking_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_blocking_peek_imp``SFX`",IMP) \
   `XVM_BLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
 endclass 
 
 `define xvm_nonblocking_peek_imp_decl(SFX) \
 class xvm_nonblocking_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_nonblocking_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)), \
-            xvm_tlm_nonblocking_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_nonblocking_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T)), \
+            xvm_tlm_nonblocking_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_nonblocking_peek_imp``SFX`",IMP) \
   `XVM_NONBLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
 endclass
 
 `define xvm_peek_imp_decl(SFX) \
 class xvm_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_peek_if #(T,T)), \
-            xvm_tlm_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_peek_if #(T)), \
+            xvm_tlm_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_peek_imp``SFX`",IMP) \
   `XVM_BLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_NONBLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
@@ -170,11 +170,11 @@ endclass
 
 `define xvm_blocking_get_peek_imp_decl(SFX) \
 class xvm_blocking_get_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_blocking_get_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)), \
-            xvm_tlm_blocking_get_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_blocking_get_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_blocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T)), \
+            xvm_tlm_blocking_get_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_blocking_get_peek_imp``SFX`",IMP) \
   `XVM_BLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_BLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
@@ -182,11 +182,11 @@ endclass
 
 `define xvm_nonblocking_get_peek_imp_decl(SFX) \
 class xvm_nonblocking_get_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_nonblocking_get_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)), \
-            xvm_tlm_nonblocking_get_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_nonblocking_get_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T)), \
+            xvm_tlm_nonblocking_get_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_nonblocking_get_peek_imp``SFX`",IMP) \
   `XVM_NONBLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_NONBLOCKING_PEEK_IMP_SFX(SFX, m_imp, T, t) \
@@ -194,17 +194,17 @@ endclass
 
 `define xvm_get_peek_imp_decl(SFX) \
 class xvm_get_peek_imp``SFX #(type T=int, type IMP=int) \
- extends xvm_imp #(xvm_tlm_get_peek_if #(T,T)) \ 
- implements xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_blocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_get_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_peek_if #(T,T)), \
-            xvm_export_check_if #(xvm_tlm_get_peek_if #(T,T)), \
-            xvm_tlm_get_peek_if #(T,T); \
+ extends xvm_imp #(xvm_tlm_get_peek_if #(T)) \ 
+ implements xvm_export_check_if #(xvm_tlm_blocking_get_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_blocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_blocking_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_nonblocking_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_get_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_peek_if #(T)), \
+            xvm_export_check_if #(xvm_tlm_get_peek_if #(T)), \
+            xvm_tlm_get_peek_if #(T); \
   `XVM_IMP_COMMON(`"xvm_get_peek_imp``SFX`",IMP) \
   `XVM_BLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
   `XVM_NONBLOCKING_GET_IMP_SFX(SFX, m_imp, T, t) \
@@ -444,9 +444,9 @@ endclass
 
 `define xvm_analysis_imp_decl(SFX) \
 class xvm_analysis_imp``SFX #(type T=int, type IMP=int) \
-  extends xvm_imp #(xvm_tlm_analysis_if #(T,T)) \
-  implements xvm_tlm_analysis_if #(T,T), \
-             xvm_export_check_if #(xvm_tlm_analysis_if #(T,T)); \
+  extends xvm_imp #(xvm_tlm_analysis_if #(T)) \
+  implements xvm_tlm_analysis_if #(T), \
+             xvm_export_check_if #(xvm_tlm_analysis_if #(T)); \
   `XVM_IMP_COMMON(`"xvm_analysis_imp``SFX`",IMP) \
   function void write( input T t); \
     m_imp.write``SFX( t); \
